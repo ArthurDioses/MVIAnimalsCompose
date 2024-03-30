@@ -1,10 +1,9 @@
 package com.dioses.mvianimalscompose.view
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.dioses.mvianimalscompose.api.AnimalApi
 import com.dioses.mvianimalscompose.api.AnimalRepo
-import com.dioses.mvianimalscompose.ui.theme.MainViewModel
 
 /****
  * Project: MVIAnimalsCompose
@@ -13,11 +12,10 @@ import com.dioses.mvianimalscompose.ui.theme.MainViewModel
  * All rights reserved 2024.
  ****/
 class ViewModelFactory(private val api: AnimalApi) : ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T & Any {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            return MainViewModel(AnimalRepo(api)) as (T & Any)
+            return MainViewModel(AnimalRepo(api)) as T
         }
         throw IllegalArgumentException("Unknown class name")
     }
-
 }
