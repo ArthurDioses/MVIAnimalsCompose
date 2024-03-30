@@ -1,4 +1,4 @@
-package com.dioses.mvianimalscompose.ui.theme
+package com.dioses.mvianimalscompose.view
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
